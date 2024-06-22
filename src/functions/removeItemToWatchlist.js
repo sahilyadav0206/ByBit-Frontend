@@ -1,5 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import { endpoint } from "../services";
 
 export const removeItemToWatchlist = async (e, id, setIsCoinAdded) => {
   e.preventDefault();
@@ -7,7 +8,7 @@ export const removeItemToWatchlist = async (e, id, setIsCoinAdded) => {
     try {
       const token = localStorage.getItem("authToken");
       const response = await axios.put(
-        "http://localhost:8080/watchlist/remove",
+        `${endpoint}/watchlist/remove`,
         { coinId: id },
         {
           withCredentials: true,

@@ -8,6 +8,7 @@ import TabsComponent from "../components/Dashboard/Tabs";
 import PaginationComponent from "../components/Dashboard/Pagination";
 import TopButton from "../components/Common/TopButton";
 import Footer from "../components/Common/Footer/footer";
+import { endpoint } from "../services";
 
 function Dashboard() {
   const [coins, setCoins] = useState([]);
@@ -25,7 +26,7 @@ function Dashboard() {
 
   const getWatchlistData = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/watchlist", {
+      const response = await axios.get(`${endpoint}/watchlist`, {
         withCredentials: true, // Send cookies along with the request
       });
       console.log("watchlist", response.data);

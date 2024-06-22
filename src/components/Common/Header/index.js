@@ -8,6 +8,7 @@ import { IoLogOut } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../../../hooks/useAuth";
+import { endpoint } from "../../../services";
 
 function Header() {
   const [darkMode, setDarkMode] = useState(
@@ -47,7 +48,7 @@ function Header() {
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/logout",
+        `${endpoint}/logout`,
         {},
         { withCredentials: true }
       );

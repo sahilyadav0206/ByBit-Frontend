@@ -3,12 +3,13 @@ import Header from "../components/Common/Header";
 import axios from "axios";
 import { Box, Button, Grid } from "@mui/material";
 import PostCard from "../components/PostCard";
+import { endpoint } from "../services";
 
 const Discussions = () => {
   const [allPosts, setAllPosts] = useState([]);
   const fetchAllPosts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/discussions`, {
+      const response = await axios.get(`${endpoint}/discussions`, {
         withCredentials: true, // Ensure cookies are sent with the request
       });
       setAllPosts(response?.data);

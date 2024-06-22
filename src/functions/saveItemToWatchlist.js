@@ -1,5 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import { endpoint } from "../services";
 
 export const saveItemToWatchlist = async (e, id) => {
   e.preventDefault();
@@ -17,7 +18,7 @@ export const saveItemToWatchlist = async (e, id) => {
   try {
     const token = localStorage.getItem("authToken");
     await axios.put(
-      "http://localhost:8080/watchlist/add",
+      `${endpoint}/watchlist/add`,
       { coinId: id },
       {
         withCredentials: true,

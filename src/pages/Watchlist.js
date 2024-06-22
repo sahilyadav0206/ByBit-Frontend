@@ -4,6 +4,7 @@ import Header from "../components/Common/Header";
 import TabsComponent from "../components/Dashboard/Tabs";
 import { get100Coins } from "../functions/get100Coins";
 import axios from "axios";
+import { endpoint } from "../services";
 
 function Watchlist() {
   // const watchlist = JSON.parse(localStorage.getItem("watchlist"));
@@ -18,7 +19,7 @@ function Watchlist() {
 
   const getWatchlistData = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/watchlist", {
+      const response = await axios.get(`${endpoint}/watchlist`, {
         withCredentials: true, // Send cookies along with the request
       });
       console.log("watchlist", response.data);

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { endpoint } from "../services";
 
 const useAuth = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -8,7 +9,7 @@ const useAuth = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/check-auth", {
+        const response = await axios.get(`${endpoint}/check-auth`, {
           withCredentials: true, // This is important for sending cookies
         });
 

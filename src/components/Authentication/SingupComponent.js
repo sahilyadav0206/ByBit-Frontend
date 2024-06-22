@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import { toast } from "react-toastify";
+import { endpoint } from "../../services";
 
 function Copyright(props) {
   return (
@@ -50,7 +51,7 @@ export default function SignUpComponent() {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/signup", {
+      const response = await fetch(`${endpoint}/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

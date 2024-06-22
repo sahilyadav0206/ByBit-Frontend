@@ -5,6 +5,7 @@ import Header from "../components/Common/Header";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { endpoint } from "../services";
 
 const PostCreate = () => {
   const [formData, SetFormData] = useState({
@@ -23,7 +24,7 @@ const PostCreate = () => {
     e.preventDefault();
     axios
       .post(
-        "http://localhost:8080/post",
+        `${endpoint}/post`,
         {
           heading: heading,
           description: description,

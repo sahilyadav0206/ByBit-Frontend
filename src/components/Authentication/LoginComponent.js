@@ -12,6 +12,7 @@ import Container from "@mui/material/Container";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import { toast } from "react-toastify";
 import axios from "axios";
+import { endpoint } from "../../services";
 
 function Copyright(props) {
   return (
@@ -41,7 +42,7 @@ export default function SignIn() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/login",
+        `${endpoint}/login`,
         { email, password },
         { withCredentials: true } // This is important for sending cookies
       );
