@@ -14,6 +14,7 @@ import PrivateRoute from "./PrivateRoute ";
 import SignUp from "./pages/SignUp";
 import PostCreate from "./pages/PostCreate";
 import Discussions from "./pages/Discussions";
+import PostDetails from "./pages/PostDetails";
 
 function App() {
   const theme = createTheme({
@@ -90,6 +91,10 @@ function App() {
             <Route
               path="/discussions"
               element={<PrivateRoute element={Discussions} />}
+            />
+            <Route
+              path="/discussions/:postId"
+              element={<PrivateRoute element={PostDetails} />}
             />
           </Routes>
         </BrowserRouter>
