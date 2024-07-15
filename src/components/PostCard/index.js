@@ -9,8 +9,10 @@ import {
 } from "@mui/material";
 import moment from "moment";
 import { BiSolidMessageSquareDetail } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const PostCard = ({ post, index }) => {
+  const navigate = useNavigate()
   console.log(post);
   const { heading, description, author, datePosted, comments } = post;
 
@@ -53,7 +55,7 @@ const PostCard = ({ post, index }) => {
           </Box>
         </div>
         <div>
-          <Button size="small" variant="contained" sx={{ marginTop: "5px" }}>
+          <Button size="small" variant="contained" sx={{ marginTop: "5px" }} onClick={() => navigate(`${post?._id}`)}>
             Read More
           </Button>
         </div>
